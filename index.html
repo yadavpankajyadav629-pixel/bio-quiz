@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Class 11 Biology Quiz</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+  :root{--p:#2563eb;--bg:#f8fafc;--t:#0f172a;--tl:#475569;--bd:#e2e8f0;--sh:0 8px 20px rgba(0,0,0,.06)}
+body{background:var(--bg);color:var(--t);min-height:100vh;display:flex;flex-direction:column}
+.app{max-width:720px;margin:0 auto;padding:16px;width:100%;flex:1;display:flex;flex-direction:column}
+button{background:var(--p);color:#fff;border:none;border-radius:60px;padding:14px 24px;font-weight:600;font-size:1rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 12px rgba(37,99,235,.2)}
+input{width:100%;padding:16px 18px;border:1.5px solid var(--bd);border-radius:60px;font-size:1rem;outline:none;background:#fff}
+.card{background:#fff;border-radius:20px;padding:24px 20px;box-shadow:var(--sh)}
+.hidden{display:none!important}
+  .start{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:80vh;text-align:center;gap:20px}
+.start h1{font-size:2.2rem;font-weight:700}
+.start h2{font-size:1.2rem;font-weight:500;color:var(--tl);margin-bottom:8px}
+.ig{width:100%;max-width:360px;text-align:left}
+.ig label{display:block;font-size:.9rem;color:var(--tl);margin-bottom:6px;margin-left:10px}
+.start button{width:100%;max-width:360px;font-size:1.1rem;padding:16px}
+.qh{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.qc{font-weight:600;background:#eef2ff;color:#1d4ed8;padding:8px 16px;border-radius:40px;font-size:.95rem}
+.tm{font-weight:700;font-size:1.2rem;background:#fff;padding:8px 18px;border-radius:40px;box-shadow:var(--sh);color:#1d4ed8}
+.pb{height:8px;background:#e2e8f0;border-radius:20px;margin-bottom:24px;overflow:hidden}
+.pf{height:100%;background:linear-gradient(90deg,#2563eb,#3b82f6);width:0;transition:width .3s}
+  .qt{font-size:1.15rem;font-weight:600;margin-bottom:22px;line-height:1.5}
+.opts{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.opt{background:#f1f5f9;border:2px solid transparent;border-radius:12px;padding:16px 18px;font-size:1rem;font-weight:500;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;width:100%}
+.opt .l{font-weight:700;width:28px;height:28px;background:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.85rem;color:#1d4ed8;flex-shrink:0}
+.opt.sel{background:#dbeafe;border-color:var(--p)}
+.opt.sel .l{background:var(--p);color:#fff}
+.opt.sel::after{content:'✓';margin-left:auto;color:var(--p);font-size:1.2rem;font-weight:900}
+.nb{width:100%;padding:18px;font-size:1.1rem}
+.res{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;min-height:70vh;justify-content:center}
+.rb{font-size:3rem;font-weight:800;padding:20px 40px;border-radius:80px}
+.rb.pass{background:#d1fae5;color:#065f46}
+.rb.fail{background:#fee2e2;color:#991b1b}
+  .rs{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 32px;background:#f1f5f9;padding:20px;border-radius:12px;width:100%;max-width:400px}
+.si{display:flex;flex-direction:column;align-items:center}
+.sl{font-size:.8rem;text-transform:uppercase;color:var(--tl);font-weight:500}
+.sv{font-size:1.5rem;font-weight:700;color:#1d4ed8}
+.rf{margin-top:28px;font-size:.9rem;color:var(--tl)}
+.tm2{color:var(--tl);font-size:.9rem}
+.lw{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;gap:16px;text-align:center;padding:16px}
+.lw input{max-width:280px;text-align:center}
+.ah{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.sl2{display:flex;flex-direction:column;gap:12px}
+.sc{background:#fff;border-radius:12px;padding:16px;box-shadow:var(--sh);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;border-left:6px solid var(--p);cursor:pointer}
+.sc .n{font-weight:700;font-size:1.05rem}
+.sc .m{font-size:.8rem;color:var(--tl);display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:4px}
+.bd{font-weight:700;padding:4px 12px;border-radius:40px;font-size:.75rem}
+.bp{background:#d1fae5;color:#065f46}
+.bf{background:#fee2e2;color:#991b1b}
+  .bb{background:transparent;color:var(--p);box-shadow:none;padding:8px 16px;font-weight:500;margin-bottom:14px}
+.qr{background:#f8fafc;border-radius:12px;padding:14px;margin-bottom:12px;border:1px solid var(--bd)}
+.qr .qtx{font-weight:600;margin-bottom:8px;font-size:.95rem}
+.ol{display:flex;align-items:flex-start;gap:8px;padding:3px 0;font-size:.88rem}
+.ol .lt{font-weight:700;width:20px;flex-shrink:0}
+.sb{font-weight:700;padding:2px 10px;border-radius:40px;font-size:.75rem;display:inline-block;margin-top:6px}
+.sr{background:#d1fae5;color:#065f46}
+.sw{background:#fee2e2;color:#991b1b}
+.su{background:#fef3c7;color:#92400e}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px;background:#f1f5f9;padding:14px;border-radius:12px;font-size:.9rem}
+.stats strong{color:#1d4ed8}
+.fab{position:fixed;bottom:20px;right:20px;width:50px;height:50px;border-radius:50%;background:var(--p);color:#fff;font-size:1.2rem;box-shadow:0 6px 16px rgba(37,99,235,.4);padding:0;z-index:99}
+@media(max-width:480px){.start h1{font-size:1.8rem}.qt{font-size:1.05rem}.opt{padding:14px 16px;font-size:.95rem}.tm{font-size:1rem;padding:6px 12px}.rb{font-size:2.3rem;padding:14px 24px}.sv{font-size:1.3rem}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div id="startScreen" class="start">
+    <h1>Class 11 Biology Quiz</h1>
+    <h2>Biological Classification — NCERT Based</h2>
+    <div class="ig">
+      <label for="studentName">Enter Your Name</label>
+      <input type="text" id="studentName" placeholder="Student Name" autocomplete="off">
+    </div>
+    <button id="startQuizBtn">Start Quiz</button>
+    <p class="tm2">30 questions · 30 minutes · 1 mark each</p>
+    <p class="tm2" style="font-size:.8rem">Passing: 26+ / 30</p>
+  </div>
+  <div id="quizScreen" class="hidden">
+    <div class="qh">
+      <span class="qc" id="questionCounter">Question 1 of 30</span>
+      <span class="tm" id="timerDisplay">30:00</span>
+    </div>
+    <div class="pb"><div class="pf" id="progressFill"></div></div>
+    <div class="card">
+      <div class="qt" id="questionText">Loading...</div>
+      <div class="opts" id="optionsContainer"></div>
+      <button class="nb" id="nextBtn">Next Question →</button>
+    </div>
+  </div>
+
+  <div id="resultScreen" class="res hidden">
+    <h2 style="font-size:1.7rem">Quiz Completed</h2>
+    <p style="font-size:1.05rem" id="resultStudentName"></p>
+    <div class="rb" id="resultBadge">PASS</div>
+    <div class="rs">
+      <div class="si"><span class="sl">Score</span><span class="sv" id="resultScore">0/30</span></div>
+      <div class="si"><span class="sl">Percentage</span><span class="sv" id="resultPercentage">0%</span></div>
+      <div class="si"><span class="sl">Time</span><span class="sv" id="resultTime">00:00</span></div>
+    </div>
+    <p class="tm2" id="resultMessage"></p>
+    <div class="rf">Questions are created by Pankaj ❤️</div>
+  </div>
+
+  <div id="loginWrap" class="lw hidden">
+    <h2>Admin Login</h2>
+    <p class="tm2">Enter password</p>
+    <input type="password" id="adminPassword" placeholder="Password" autocomplete="off">
+    <button id="adminLoginBtn">Login</button>
+    <p id="adminError" style="color:#ef4444;font-size:.9rem"></p>
+    <button id="adminBackBtn" class="bb" style="background:transparent;color:var(--p);border:2px solid var(--p);border-radius:60px;padding:12px 24px;box-shadow:none">← Back to Quiz</button>
+  </div>
+
+  <div id="dashboard" class="hidden">
+    <div class="ah">
+      <h2 style="font-size:1.3rem">Admin Dashboard</h2>
+      <div style="display:flex;gap:8px">
+        <button id="refreshBtn" style="background:transparent;color:var(--p);border:2px solid var(--p);box-shadow:none;padding:8px 14px;font-size:.85rem">↻</button>
+        <button id="adminLogoutBtn" style="background:transparent;color:var(--p);border:2px solid var(--p);box-shadow:none;padding:8px 14px;font-size:.85rem">Logout</button>
+      </div>
+    </div>
+    <div id="studentListContainer" class="sl2"></div>
+    <div id="detailViewContainer" class="hidden"></div>
+  </div>
+</div>
+<button id="adminFab" class="fab" title="Admin">⚙</button>
+<script>
+  Pankaj Vi:
+(function(){
+  const questions=[
+    {q:"Five Kingdom Classification was proposed by:",o:["R.H. Whittaker","Carolus Linnaeus","Ernst Haeckel","Robert Hooke"],c:0},
+    {q:"Which characteristic is NOT a major criterion of Whittaker's classification?",o:["Cell structure","Mode of nutrition","Reproduction","Body colour"],c:3},
+    {q:"Organisms belonging to Monera are generally:",o:["Multicellular eukaryotes","Unicellular prokaryotes","Unicellular eukaryotes","Multicellular prokaryotes"],c:1},
+    {q:"Archaebacteria are different from eubacteria mainly because of differences in their:",o:["Ribosomes","Cell wall composition","DNA base sequence only","Cell size"],c:1},
+    {q:"Methanogens are commonly found in:",o:["Acidic lakes","Rumen of cattle","Human blood","Dry deserts"],c:1},
+    {q:"Cyanobacteria are also known as:",o:["Blue-green algae","Brown algae","Red algae","Green algae"],c:0},
+    {q:"Which cyanobacterium can fix atmospheric nitrogen?",o:["Nostoc","Chlamydomonas","Amoeba","Euglena"],c:0},
+    {q:"Mycoplasma are unique because they:",o:["Have a very thick cell wall","Lack a cell wall","Lack DNA","Are multicellular"],c:1},
+    {q:"Protists are primarily:",o:["Multicellular prokaryotes","Unicellular eukaryotes","Multicellular eukaryotes","Unicellular prokaryotes"],c:1},
+    {q:"Diatoms possess a cell wall mainly made up of:",o:["Chitin","Silica","Cellulose","Peptidoglycan"],c:1},
+    {q:"The accumulated remains of diatoms form:",o:["Peat","Diatomaceous earth","Humus","Coal"],c:1},
+    {q:"Which group is commonly referred to as slime moulds?",o:["Chrysophytes","Dinoflagellates","Myxomycetes","Euglenoids"],c:2},
+    {q:"Red tides are generally associated with an excessive growth of:",o:["Diatoms","Dinoflagellates","Euglenoids","Slime moulds"],c:1},
+    {q:"Which organism has both plant-like and animal-like characteristics?",o:["Euglena","Amoeba","Paramecium","Plasmodium"],c:0},
+    {q:"In Euglena, the cell wall is replaced by a flexible structure called:",o:["Capsule","Pellicle","Frustule","Mycelium"],c:1},
+    {q:"Which of the following is an example of a ciliated protozoan?",o:["Amoeba","Paramecium","Plasmodium","Euglena"],c:1},
+    {q:"Fungal cell walls are mainly composed of:",o:["Cellulose","Chitin","Silica","Peptidoglycan"],c:1},
+    {q:"The thread-like structures forming the body of most fungi are called:",o:["Hyphae","Rhizoids","Flagella","Pseudopodia"],c:0},
+    {q:"A network of hyphae is called:",o:["Mycelium","Protonema","Thallus","Capsule"],c:0},
+    {q:"Which fungal group generally has aseptate and coenocytic hyphae?",o:["Ascomycetes","Basidiomycetes","Phycomycetes","Deuteromycetes"],c:2},
+    {q:"Sac fungi refers to:",o:["Phycomycetes","Ascomycetes","Basidiomycetes","Deuteromycetes"],c:1},
+    {q:"The reproductive structures of Basidiomycetes are called:",o:["Ascospores","Basidiospores","Zoospores","Conidia"],c:1},
+    {q:"Deuteromycetes are commonly called:",o:["Club fungi","Sac fungi","Imperfect fungi","Algal fungi"],c:2},
+    {q:"Which is an example of symbiotic association between algae and fungi?",o:["Mycorrhiza","Lichen","Rhizobium","Plasmodium"],c:1},
+    {q:"In lichens, the algal component mainly provides:",o:["Shelter","Water only","Food through photosynthesis","Mineral salts only"],c:2},
+    {q:"Viruses are considered non-cellular because they:",o:["Have no genetic material","Lack cellular organisation","Cannot reproduce under any condition","Are always multicellular"],c:1},
+    {q:"The genetic material of a virus can be:",o:["Only DNA","Only RNA","Either DNA or RNA","DNA and RNA together in every virus"],c:2},
+    {q:"Viroids differ from viruses because viroids:",o:["Have a protein coat","Consist of small circular RNA without a protein coat","Are cellular organisms","Contain DNA"],c:1},
+    {q:"The term living fossil in biological classification is associated with:",o:["Viruses","Archaebacteria","Diatoms","Fungi"],c:1},
+
+{q:"Why are viruses placed at the boundary of living and non-living?",o:["They are always visible under a microscope","They reproduce independently inside cells","They show living characteristics inside a host but can remain inert outside it","They have a cellular structure outside the host"],c:2}
+  ];
+  Pankaj Vi:
+const STORAGE_KEY='bio_quiz_results';
+  let idx=0,answers=new Array(30).fill(null),studentName='',timeLeft=30*60,timerId=null,active=false,elapsed=0;
+
+  const $=id=>document.getElementById(id);
+  const startScreen=$('startScreen'),quizScreen=$('quizScreen'),resultScreen=$('resultScreen');
+  const nameInput=$('studentName'),startBtn=$('startQuizBtn');
+  const qCounter=$('questionCounter'),timerDisplay=$('timerDisplay'),progressFill=$('progressFill');
+  const qText=$('questionText'),optContainer=$('optionsContainer'),nextBtn=$('nextBtn');
+  const rName=$('resultStudentName'),rBadge=$('resultBadge'),rScore=$('resultScore'),rPct=$('resultPercentage'),rTime=$('resultTime'),rMsg=$('resultMessage');
+  const loginWrap=$('loginWrap'),dashboard=$('dashboard');
+  const pwdInput=$('adminPassword'),loginBtn=$('adminLoginBtn'),errEl=$('adminError');
+  const listContainer=$('studentListContainer'),detailContainer=$('detailViewContainer');
+  const logoutBtn=$('adminLogoutBtn'),refreshBtn=$('refreshBtn'),adminFab=$('adminFab'),adminBackBtn=$('adminBackBtn');
+
+  const fmt=s=>${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')};
+  const fmtTaken=s=>${Math.floor(s/60)}m ${s%60}s;
+  const esc=t=>String(t'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+
+  function saveResult(r){
+    const all=JSON.parse(localStorage.getItem(STORAGE_KEY)'[]');
+    all.push(r);
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(all));
+  }
+  function getAll(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');}catch(e){return[];}}
+
+  function startQuiz(){
+    const n=nameInput.value.trim();
+    if(!n){alert('Please enter your name to start the quiz.');return;}
+    studentName=n;idx=0;answers=new Array(30).fill(null);timeLeft=30*60;elapsed=0;active=true;
+    startScreen.classList.add('hidden');quizScreen.classList.remove('hidden');resultScreen.classList.add('hidden');
+    if(timerId)clearInterval(timerId);
+    timerId=setInterval(()=>{
+      if(!active)return;
+      if(timeLeft<=0){timeLeft=0;updateTimer();clearInterval(timerId);timerId=null;autoSubmit();return;}
+      timeLeft--;elapsed++;updateTimer();
+    },1000);
+    renderQuestion();updateTimer();updateProgress();
+  }
+
+  function updateTimer(){timerDisplay.textContent=fmt(timeLeft);}
+  function updateProgress(){progressFill.style.width=(idx/30*100)+'%';qCounter.textContent=Question ${idx+1} of 30;}
+
+  function renderQuestion(){
+    const q=questions[idx];
+    qText.textContent=${idx+1}. ${q.q};
+    optContainer.innerHTML='';
+    const L=['A','B','C','D'];
+    q.o.forEach((opt,i)=>{
+      const b=document.createElement('button');
+      b.className='opt'+(answers[idx]===i?' sel':'');
+      b.innerHTML=<span class="l">${L[i]}</span> ${opt};
+      b.onclick=()=>selectOption(i);
+      optContainer.appendChild(b);
+    });
+    nextBtn.textContent=idx===29?'Submit Quiz':'Next Question →';
+  }
+
+  function selectOption(i){
+    if(!active)return;
+    answers[idx]=i;
+    [...optContainer.children].forEach((el,k)=>el.classList.toggle('sel',k===i));
+  }
+
+  function nextQuestion(){
+    if(!active)return;
+    if(idx===29){
+      const un=answers.findIndex(a=>a===null);
+      if(un!==-1){alert('Please answer all questions. Question '+(un+1)+' is unanswered.');idx=un;renderQuestion();updateProgress();return;}
+      submitQuiz();return;
+    }
+    idx++;renderQuestion();updateProgress();window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function submitQuiz(){
+    if(!active)return;
+    active=false;
+    if(timerId){clearInterval(timerId);timerId=null;}
+    let score=0;
+    answers.forEach((a,i)=>{if(a!==null&&a===questions[i].c)score++;});
+    const pct=Math.round(score/30*100);
+    const passed=score>=26;
+    const res={name:studentName,score,total:30,percentage:pct,passed,timeTaken:elapsed,timeTakenFormatted:fmtTaken(elapsed),answers:[...answers],timestamp:new Date().toISOString()};
+    saveResult(res);
+    quizScreen.classList.add('hidden');resultScreen.classList.remove('hidden');
+    rName.textContent=Student Name: ${studentName};
+
+rBadge.textContent=passed?'PASS 🎉':'FAIL';
+    rBadge.className='rb '+(passed?'pass':'fail');
+    rScore.textContent=${score}/30;
+    rPct.textContent=${pct}%;
+    rTime.textContent=fmtTaken(elapsed);
+    rMsg.textContent=passed?'Congratulations! You passed.':'Keep studying! Try again.';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function autoSubmit(){if(active)submitQuiz();}
+
+  function resetDueToLeave(){
+    if(!active)return;
+    if(timerId){clearInterval(timerId);timerId=null;}
+    active=false;idx=0;answers=new Array(30).fill(null);timeLeft=30*60;elapsed=0;
+    startScreen.classList.remove('hidden');quizScreen.classList.add('hidden');resultScreen.classList.add('hidden');
+    alert('You left the quiz. The quiz has been restarted from Question 1.');
+  }
+
+  document.addEventListener('visibilitychange',()=>{if(document.hidden&&active)resetDueToLeave();});
+  window.addEventListener('beforeunload',e=>{if(active){e.preventDefault();e.returnValue='';}});
+  window.addEventListener('pagehide',()=>{if(active){if(timerId)clearInterval(timerId);active=false;}});
+
+  function showAdminLogin(){
+    startScreen.classList.add('hidden');quizScreen.classList.add('hidden');resultScreen.classList.add('hidden');
+    dashboard.classList.add('hidden');loginWrap.classList.remove('hidden');
+    pwdInput.value='';errEl.textContent='';pwdInput.focus();
+  }
+
+  function adminLogin(){
+    if(pwdInput.value.trim()==='123'){
+      loginWrap.classList.add('hidden');dashboard.classList.remove('hidden');
+      renderAdminList();
+    } else { errEl.textContent='Incorrect password. Try again.'; }
+  }
+
+  function adminLogout(){
+    dashboard.classList.add('hidden');loginWrap.classList.add('hidden');
+    startScreen.classList.remove('hidden');
+    detailContainer.classList.add('hidden');listContainer.classList.remove('hidden');
+  }
+
+  function renderAdminList(){
+    detailContainer.classList.add('hidden');listContainer.classList.remove('hidden');
+    const all=getAll();
+    if(all.length===0){listContainer.innerHTML='<p class="tm2" style="text-align:center;padding:40px">No submissions yet.</p>';return;}
+    let html='';
+    all.forEach((r,i)=>{
+      html+=<div class="sc" data-i="${i}">
+        <div><div class="n">${esc(r.name)}</div>
+        <div class="m"><span>Score: ${r.score}/${r.total}</span><span>${r.percentage}%</span><span>Time: ${r.timeTakenFormatted}</span></div></div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span class="bd ${r.passed?'bp':'bf'}">${r.passed?'PASS':'FAIL'}</span>
+          <span style="color:var(--tl)">›</span>
+        </div></div>;
+    });
+    listContainer.innerHTML=html;
+    listContainer.querySelectorAll('.sc').forEach(c=>{c.onclick=()=>showStudentDetail(parseInt(c.dataset.i));});
+  }
+
+  function showStudentDetail(i){
+    const all=getAll();const r=all[i];if(!r)return;
+    listContainer.classList.add('hidden');detailContainer.classList.remove('hidden');
+    const wrong=r.answers.filter((a,ix)=>a!==null&&a!==questions[ix].c).length;
+    const unans=r.answers.filter(a=>a===null).length;
+    let html=<button class="bb" id="backBtn">← Back to list</button>
+      <h3 style="margin-bottom:12px">${esc(r.name)}</h3>
+      <div class="stats">
+        <div><span class="tm2">Score:</span> <strong>${r.score}/${r.total}</strong></div>
+        <div><span class="tm2">Percentage:</span> <strong>${r.percentage}%</strong></div>
+        <div><span class="tm2">Result:</span> <strong style="color:${r.passed?'#065f46':'#991b1b'}">${r.passed?'PASS':'FAIL'}</strong></div>
+        <div><span class="tm2">Time:</span> <strong>${r.timeTakenFormatted}</strong></div>
+        <div><span class="tm2">Correct:</span> <strong>${r.score}</strong></div>
+        <div><span class="tm2">Wrong:</span> <strong>${wrong}</strong></div>
+        <div><span class="tm2">Unanswered:</span> <strong>${unans}</strong></div>
+      </div>
+      <h4 style="margin-bottom:12px">Question-wise Review</h4>;
+    const L=['A','B','C','D'];
+    r.answers.forEach((ans,qi)=>{
+      const q=questions[qi];
+
+const ok=ans!==null&&ans===q.c;
+      const un=ans===null;
+      const cls=un?'su':(ok?'sr':'sw');
+      const txt=un?'UNANSWERED':(ok?'RIGHT ✓':'WRONG ✗');
+      html+=<div class="qr"><div class="qtx">Q${qi+1}. ${esc(q.q)}</div><div style="margin:6px 0">;
+      q.o.forEach((o,oi)=>{
+        const sel=ans===oi,cor=q.c===oi;
+        let st='';
+        if(sel&&cor)st='color:#065f46;font-weight:600';
+        else if(sel&&!cor)st='color:#991b1b;font-weight:600';
+        else if(!sel&&cor)st='color:#065f46;font-weight:500';
+        html+=<div class="ol" style="${st}"><span class="lt">${L[oi]})</span><span>${esc(o)}${sel?' ← Your answer':''}${cor&&!sel?' ← Correct':''}</span></div>;
+      });
+      html+=</div><span class="sb ${cls}">${txt}</span></div>;
+    });
+    detailContainer.innerHTML=html;
+    document.getElementById('backBtn').onclick=renderAdminList;
+  }
+
+  startBtn.onclick=startQuiz;
+  nameInput.addEventListener('keypress',e=>{if(e.key==='Enter')startQuiz();});
+  nextBtn.onclick=nextQuestion;
+  loginBtn.onclick=adminLogin;
+  pwdInput.addEventListener('keypress',e=>{if(e.key==='Enter')adminLogin();});
+  logoutBtn.onclick=adminLogout;
+  refreshBtn.onclick=renderAdminList;
+  adminFab.onclick=showAdminLogin;
+  adminBackBtn.onclick=()=>{loginWrap.classList.add('hidden');startScreen.classList.remove('hidden');};
+
+  if(window.location.hash==='#admin')showAdminLogin();
+})();
+</script>
+</body>
+</html>
